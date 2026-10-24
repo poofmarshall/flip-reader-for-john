@@ -1,0 +1,17 @@
+# Flip Reader. Start it from this folder with:
+#   docker compose up -d --build
+# Then open http://<this computer's address>:8090 on your phone (same Wi-Fi).
+services:
+  flip-reader:
+    build: .
+    image: flip-reader:local
+    container_name: flip-reader
+    restart: unless-stopped
+    ports:
+      - "8090:8090"            # change the LEFT number if 8090 is already taken on this computer
+    volumes:
+      - ./data:/data           # your feeds, settings and stories. Keep this folder.
+    environment:
+      APP_TOKEN: "${APP_TOKEN}"                     # your access code, from the .env file
+      REFRESH_MINUTES: "${REFRESH_MINUTES:-20}"     # how often to check for new stories
+      LOG_LEVEL: INFO

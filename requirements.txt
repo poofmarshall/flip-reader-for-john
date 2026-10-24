@@ -1,0 +1,6 @@
+flask>=3.0
+feedparser>=6.0
+requests>=2.31
+waitress>=3.0
+readability-lxml>=0.8.1
+lxml_html_clean>=0.4
